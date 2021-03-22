@@ -1,0 +1,286 @@
+:root {
+    --dBlue: #627DD1;
+    --lBlue: #9BB1FF;
+    --grey: #EAEFFF;
+    --orange: #D2A517;
+    --tBlue: rgba(98, 125, 209, 0.6);
+    --tOrange: rgba(210, 165, 23, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0px;
+}
+
+/* START PAGE */
+#startPage {
+    position: relative;
+    height: 100vh;
+    background-color: var(--dBlue);
+    animation-name: transitionS;
+    animation-duration: 2s;
+    animation-delay: 0.3s;
+}
+
+#logo {
+    margin-top: 3vh;
+    height: 15vh;
+}
+
+
+/* HEADLINE */
+#wrapHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+h1 {
+    text-align: left;
+    width: 62vw;
+    margin: auto;
+    font-size: 6.5em;
+    line-height: 1;
+    font-weight: 700;
+}
+
+/* NEEDED FOR ANIMATION */
+span {
+    color: var(--dBlue);
+    font-weight: 700;
+}
+
+.ml6 {
+    position: relative;
+    font-weight: 900;
+    font-size: 6.5em;
+}
+
+.ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+}
+
+.ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+    color: var(--grey);
+}
+
+/* WRAPS BUTTONS */
+#btnWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HIDES INPUT */
+input[type="file"] {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* BUTTON STYLING */
+#read-button,
+#homeButton {
+    background: var(--orange);
+    color: var(--grey);
+    transition: 0.4s;
+}
+
+
+#selectFileButton {
+    background: var(--grey);
+    color: var(--dBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+#selectFileButton,
+#read-button,
+#homeButton {
+    font-size: 2vh;
+    border: 0;
+    height: 8vh;
+    width: 10vw;
+    border-radius: 28px;
+    margin: 5px;
+    font-weight: 700;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    transition: 0.4s;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#selectFileButton:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    background: var(--lBlue);
+}
+
+#read-button:hover,
+#homeButton:hover {
+    background: var(--tOrange);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+/* RESULT PAGE  */
+#resultPage {
+    display: none;
+    height: 100vh;
+    background: var(--grey);
+    position: fixed;
+    bottom: -100vh;
+    width: 100vw;
+    animation-name: transition;
+    animation-duration: 2s;
+    animation-delay: 0.3s;
+}
+
+/* WHERE THE EDITED FILE TEXT IS PRESENTED */
+#file-contents {
+    margin-top: 2vh;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+}
+
+#preWrap {
+    display: none;
+    transition: 0.4;
+    text-align: center;
+    overflow-y: scroll;
+    animation-name: showResult;
+    animation-duration: 4s;
+    animation-delay: 0.8s;
+    height: 0vh;
+    padding-top: 10px;
+}
+
+pre {
+    margin: auto;
+    width: auto;
+    max-width: 50vw;
+    white-space: -moz-pre-wrap;
+    /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap;
+    /* Opera */
+    white-space: -o-pre-wrap;
+    /* Opera */
+    white-space: pre-wrap;
+    /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word;
+    /* IE 5.5+ */
+    background: var(--grey);
+    height: 62vh;
+    overflow-y: scroll;
+    border-radius: 28px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+p {
+    font-size: 2.3em;
+    color: black;
+    padding-top: 3vw;
+    font-weight: 700;
+    margin: 0px;
+}
+
+/* ANIMATIONS */
+@keyframes showResult {
+    0% {
+        height: 0vh;
+        opacity: 0;
+    }
+
+    100% {
+        height: 66vh;
+        opacity: 1;
+        overflow-y: hidden;
+    }
+}
+
+@keyframes transition {
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes transitionS {
+
+    100% {
+        top: 0vh;
+    }
+}
+
+#mobileText {
+    display: none;
+}
+
+/* MOBILEPHONE */
+@media only screen and (max-width: 600px) {
+
+    #btnWrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    p {
+        padding: 20px;
+        padding-top: 40px;
+        line-height: 1;
+        font-size: 5vh;
+    }
+
+    #mobileText {
+        display: block;
+        color: var(--grey);
+        font-size: 3em;
+        width: 76vw;
+        margin-bottom: 5vh;
+        margin-top: 9vh;
+    }
+
+    #selectFileButton,
+    #read-button,
+    #homeButton {
+        width: 60vw;
+
+    }
+
+    .ml6 {
+        display: none;
+    }
+
+    pre {
+        text-align: left;
+        margin: auto;
+        width: auto;
+        max-width: 80vw;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+}
